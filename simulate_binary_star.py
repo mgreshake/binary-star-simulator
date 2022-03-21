@@ -1,5 +1,3 @@
-import math
-
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, Wedge
@@ -13,7 +11,7 @@ from utils.parameter_config import ParameterConfig
 
 AU_TO_METER = 149597870700
 DAY_TO_SEC = 86400
-DEG_TO_RAD = math.pi / 180
+DEG_TO_RAD = np.pi / 180
 JUPITER_TO_KG = 1.8982e27
 JUPITER_TO_METER = 69911000
 SUN_TO_KG = 1.98847e30
@@ -56,27 +54,29 @@ def simulate(star_system, binary_star, stability_limit=None, habitability_limit=
     ax.plot(binary_star.orbit_1[:period, 1], binary_star.orbit_1[:period, 2], color='white')
     ax.plot(binary_star.orbit_2[:period, 1], binary_star.orbit_2[:period, 2], color='white')
 
-    radius_star_1 = binary_star.r_1 * 10e-8
-    radius_star_2 = binary_star.r_2 * 10e-8
+    radius_star_1 = binary_star.r_1 * 5
+    radius_star_2 = binary_star.r_2 * 5
 
-    position_star_1 = ax.scatter(binary_star.orbit_1[0, 1], binary_star.orbit_1[0, 2], s=radius_star_1, c='yellow')
-    position_star_2 = ax.scatter(binary_star.orbit_2[0, 1], binary_star.orbit_2[0, 2], s=radius_star_2, c='red')
+    init_position_star_1 = Circle((binary_star.orbit_1[0, 1], binary_star.orbit_1[0, 2]), radius_star_1, color='yellow')
+    init_position_star_2 = Circle((binary_star.orbit_2[0, 1], binary_star.orbit_2[0, 2]), radius_star_2, color='red')
+
+    position_star_1 = ax.add_patch(init_position_star_1)
+    position_star_2 = ax.add_patch(init_position_star_2)
 
     position_planets = []
     for planet in planets:
         period = np.flatnonzero(planet.orbit_2[:, 0] >= planet.p)[0] + 1
         ax.plot(planet.orbit_2[:period, 1], planet.orbit_2[:period, 2], color='white')
-        radius_planet = planet.r_2 * 50e-8
-        init_position = ax.scatter(planet.orbit_2[0, 1], planet.orbit_2[0, 2], s=radius_planet, c='blue')
-        position_planets.append(init_position)
+        init_position = Circle((planet.orbit_2[0, 1], planet.orbit_2[0, 2]), planet.r_2 * 30, color='blue')
+        position_planets.append(ax.add_patch(init_position))
 
     time = ax.text(0.0, 0.97, "Orbital period: 0 days", color='white', transform=ax.transAxes)
 
     def update(i):
-        position_star_1.set_offsets((binary_star.orbit_1[i, 1], binary_star.orbit_1[i, 2]))
-        position_star_2.set_offsets((binary_star.orbit_2[i, 1], binary_star.orbit_2[i, 2]))
+        position_star_1.set_center((binary_star.orbit_1[i, 1], binary_star.orbit_1[i, 2]))
+        position_star_2.set_center((binary_star.orbit_2[i, 1], binary_star.orbit_2[i, 2]))
         for n, planet in enumerate(planets):
-            position_planets[n].set_offsets((planet.orbit_2[i, 1], planet.orbit_2[i, 2]))
+            position_planets[n].set_center((planet.orbit_2[i, 1], planet.orbit_2[i, 2]))
         time.set_text(f"Orbital period: {binary_star.orbit_1[i, 0] / DAY_TO_SEC:.2f} days")
         return position_star_1, position_star_2, *position_planets, time
 

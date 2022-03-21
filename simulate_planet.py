@@ -1,5 +1,3 @@
-import math
-
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle
@@ -11,7 +9,7 @@ from utils.parameter_config import ParameterConfig
 
 AU_TO_METER = 149597870700
 DAY_TO_SEC = 86400
-DEG_TO_RAD = math.pi / 180
+DEG_TO_RAD = np.pi / 180
 EARTH_TO_KG = 5.97237e24
 EARTH_TO_METER = 6371000
 JUPITER_TO_KG = 1.8982e27
@@ -48,15 +46,14 @@ def simulate(num, planet, satellites, hill_sphere=None):
     for satellite in satellites:
         period = np.flatnonzero(satellite.orbit_2[:, 0] >= satellite.p)[0] + 1
         ax.plot(satellite.orbit_2[:period, 1], satellite.orbit_2[:period, 2], color='white')
-        radius_satellite = satellite.r_2 * 10e-6
-        init_position = ax.scatter(satellite.orbit_2[0, 1], satellite.orbit_2[0, 2], s=radius_satellite, c='gray')
-        position_satellites.append(init_position)
+        init_position = Circle((satellite.orbit_2[0, 1], satellite.orbit_2[0, 2]), satellite.r_2 * 50, color='gray')
+        position_satellites.append(ax.add_patch(init_position))
 
     time = ax.text(0.0, 0.97, "Orbital period: 0 days", color='white', transform=ax.transAxes)
 
     def update(i):
         for n, satellite in enumerate(satellites):
-            position_satellites[n].set_offsets((satellite.orbit_2[i, 1], satellite.orbit_2[i, 2]))
+            position_satellites[n].set_center((satellite.orbit_2[i, 1], satellite.orbit_2[i, 2]))
         time.set_text(f"Orbital period: {satellites[0].orbit_2[i, 0] / DAY_TO_SEC:.2f} days")
         return *position_satellites, time
 
