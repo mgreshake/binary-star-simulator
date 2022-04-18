@@ -176,3 +176,21 @@ Kepler-1661:
   eccentricity planets: [0.057]
   inclination planets: [-0.536]
   rotation planets: [67.1]
+
+
+TOI-1338:
+  mass stars: [1.038, 0.2974]
+  radius stars: [1.299, 0.3015]
+  luminosity stars: [2.026, 0.01]
+  temperature stars: [6050, 3330]
+  semi-major axis stars: 0.1288
+  eccentricity stars: 0.15601
+  inclination stars: -0.342
+  rotation stars: 117.561
+
+  mass planets: [0.095]
+  radius planets: [0.612]
+  semi-major axis planets: [0.4491]
+  eccentricity planets: [0.0928]
+  inclination planets: [-0.78]
+  rotation planets: [263.3]
