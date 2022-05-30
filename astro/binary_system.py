@@ -22,31 +22,34 @@ class BinarySystem:
         self.m_2 = mass_2
         self.r_1 = radius_1
         self.r_2 = radius_2
+
         self.a = semi_major_axis
         self.e = eccentricity
+        self.i = inclination - 0.5 * np.pi
+        self.omega = rotation
 
         self.p = np.sqrt(4 * np.pi**2 * self.a**3 / (GRAVITATION * (self.m_1 + self.m_2)))
 
         self.a_1 = self.a * self.m_2 / (self.m_1 + self.m_2)
         self.a_2 = self.a - self.a_1
 
-        self.x_1 = self.a_1 * (1 + self.e) * np.cos(inclination) * np.cos(rotation)
-        self.y_1 = self.a_1 * (1 + self.e) * np.sin(rotation)
-        self.z_1 = -self.a_1 * (1 + self.e) * np.sin(inclination) * np.cos(rotation)
+        self.x_1 = self.a_1 * (1 + self.e) * np.cos(self.i) * np.cos(self.omega)
+        self.y_1 = self.a_1 * (1 + self.e) * np.sin(self.omega)
+        self.z_1 = -self.a_1 * (1 + self.e) * np.sin(self.i) * np.cos(self.omega)
 
-        self.x_2 = -self.a_2 * (1 + self.e) * np.cos(inclination) * np.cos(rotation)
-        self.y_2 = -self.a_2 * (1 + self.e) * np.sin(rotation)
-        self.z_2 = self.a_2 * (1 + self.e) * np.sin(inclination) * np.cos(rotation)
+        self.x_2 = -self.a_2 * (1 + self.e) * np.cos(self.i) * np.cos(self.omega)
+        self.y_2 = -self.a_2 * (1 + self.e) * np.sin(self.omega)
+        self.z_2 = self.a_2 * (1 + self.e) * np.sin(self.i) * np.cos(self.omega)
 
         v = np.sqrt(GRAVITATION * (self.m_1 + self.m_2) / self.a * (1 - self.e) / (1 + self.e))
 
-        self.vx_1 = v * self.m_2 / (self.m_1 + self.m_2) * np.cos(inclination) * np.sin(rotation)
-        self.vy_1 = -v * self.m_2 / (self.m_1 + self.m_2) * np.cos(rotation)
-        self.vz_1 = -v * self.m_2 / (self.m_1 + self.m_2) * np.sin(inclination) * np.sin(rotation)
+        self.vx_1 = v * self.m_2 / (self.m_1 + self.m_2) * np.cos(self.i) * np.sin(self.omega)
+        self.vy_1 = -v * self.m_2 / (self.m_1 + self.m_2) * np.cos(self.omega)
+        self.vz_1 = -v * self.m_2 / (self.m_1 + self.m_2) * np.sin(self.i) * np.sin(self.omega)
 
-        self.vx_2 = -v * self.m_1 / (self.m_1 + self.m_2) * np.cos(inclination) * np.sin(rotation)
-        self.vy_2 = v * self.m_1 / (self.m_1 + self.m_2) * np.cos(rotation)
-        self.vz_2 = v * self.m_1 / (self.m_1 + self.m_2) * np.sin(inclination) * np.sin(rotation)
+        self.vx_2 = -v * self.m_1 / (self.m_1 + self.m_2) * np.cos(self.i) * np.sin(self.omega)
+        self.vy_2 = v * self.m_1 / (self.m_1 + self.m_2) * np.cos(self.omega)
+        self.vz_2 = v * self.m_1 / (self.m_1 + self.m_2) * np.sin(self.i) * np.sin(self.omega)
 
         self.orbit_1 = None
         self.orbit_2 = None
