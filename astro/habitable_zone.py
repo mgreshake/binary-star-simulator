@@ -26,7 +26,7 @@ class HabitableZone:
     def calc_effective_stellar_flux(t_eff):
         """Calculates insolation thresholds at different atmospheric collapse limits.
 
-        :param t_eff: Effective temperature of the star.
+        :param t_eff: Effective temperature of the star in Kelvin.
 
         :return Effective stellar flux at recent Venus, runaway greenhouse, maximum greenhouse and early Mars limit.
         """
@@ -46,7 +46,7 @@ class HabitableZone:
         :param p_1: Cartesian coordinate of primary star at apastron.
         :param p_2: Cartesian coordinate of secondary star at apastron.
 
-        :return Radii of inner and outer radiative habitable limits.
+        :return Radii of inner and outer radiative habitable limits in meters.
         """
         d = 0.5 * np.linalg.norm(np.subtract(p_1, p_2)) / AU_TO_METER
         r_in, r_out, _, _ = self.solve_differential_equation(d, 0)
@@ -57,8 +57,8 @@ class HabitableZone:
 
         For detailed information, see https://iopscience.iop.org/article/10.1088/0004-637X/780/1/14/pdf.
 
-        :param a:   Semi-distance between both stars.
-        :param phi: True anomaly of hypothetical orbiting object on habitability limit contour.
+        :param a:   Semi-distance between both stars in astronomical units.
+        :param phi: True anomaly of hypothetical orbiting object on habitability limit contour in radians.
 
         return: Four possible solutions of equation ordered by descending relevance.
         """

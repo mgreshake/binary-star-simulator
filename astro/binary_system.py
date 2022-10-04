@@ -9,14 +9,14 @@ class BinarySystem:
     def __init__(self, mass_1, radius_1, mass_2, radius_2, semi_major_axis, eccentricity, inclination, rotation):
         """Initializes a gravitationally bound system with two masses.
 
-        :param mass_1:          Mass of the primary object.
-        :param radius_1:        Radius of the primary object.
-        :param mass_2:          Mass of the secondary object.
-        :param radius_2:        Radius of the secondary object.
-        :param semi_major_axis: Sum of the semi-distances between periapsis and apoapsis of both objects.
+        :param mass_1:          Mass of the primary object in kilogram.
+        :param radius_1:        Radius of the primary object in meters.
+        :param mass_2:          Mass of the secondary object in kilogram.
+        :param radius_2:        Radius of the secondary object in meters.
+        :param semi_major_axis: Sum of the semi-distances between periapsis and apoapsis of both objects in meters.
         :param eccentricity:    Shape of the ellipses describing the orbits of both objects.
-        :param inclination:     Vertical tilt of the semi-major axis with respect to the reference plane.
-        :param rotation:        Rotation angle of the semi-major axis with respect to the observer.
+        :param inclination:     Vertical tilt of the semi-major axis with respect to the reference plane in radians.
+        :param rotation:        Rotation angle of the semi-major axis with respect to the observer in radians.
         """
         self.m_1 = mass_1
         self.m_2 = mass_2
@@ -57,7 +57,7 @@ class BinarySystem:
     def calc_stability_limit(self):
         """Calculates minimum distance from barycenter at which stable orbits are possible.
 
-        return: Radius of minimum stable orbit.
+        return: Radius of minimum stable orbit in meters.
         """
         mu = self.m_2 / (self.m_1 + self.m_2)
         return self.a * (1.6 + 4.12 * mu + 5.1 * self.e - 4.27 * mu * self.e - 5.09 * mu**2 - 2.22 * self.e**2
@@ -66,22 +66,22 @@ class BinarySystem:
     def calc_hill_sphere(self):
         """Calculates radius of Hill sphere where the gravitational forces of both objects are equal.
 
-        return: Radius of Hill sphere.
+        return: Radius of Hill sphere in meters.
         """
         return self.a * (1 - self.e) * np.cbrt(self.m_2 / (3 * self.m_1))
 
     def calc_roche_limit(self):
         """Calculates Roche limit where tidal forces and gravitational self-attraction are equal.
 
-        return: Radius of Roche limit.
+        return: Radius of Roche limit in meters.
         """
         return self.r_2 * np.cbrt(2 * self.m_1 / self.m_2)
 
     def integrate_orbits(self, dt, t_max):
         """Integrates orbits using the Runge-Kutta method.
 
-        :param dt:    Step size.
-        :param t_max: Maximum integration time.
+        :param dt:    Step size in seconds.
+        :param t_max: Maximum integration time in seconds.
         """
         def func(y):
             r = np.sqrt((y[6] - y[0])**2 + (y[7] - y[1])**2 + (y[8] - y[2])**2)

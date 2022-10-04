@@ -9,8 +9,8 @@ class CelestialBody:
     def __init__(self, mass, radius):
         """Sets properties of celestial body.
 
-        :param mass:   Mass of the object.
-        :param radius: Mean radius of the object.
+        :param mass:   Mass in kilogram.
+        :param radius: Mean radius in meters.
         """
         self.mass = mass
         self.radius = radius
@@ -26,10 +26,10 @@ class Star(CelestialBody):
     def __init__(self, mass, radius, luminosity, temperature):
         """Sets properties of star.
 
-        :param mass:        Mass of the object.
-        :param radius:      Mean radius of the object.
-        :param luminosity:  Bolometric luminosity of the object.
-        :param temperature: Effective temperature of the object.
+        :param mass:        Mass in kilogram.
+        :param radius:      Mean radius in meters.
+        :param luminosity:  Bolometric luminosity in Watt.
+        :param temperature: Effective temperature in Kelvin.
         """
         super().__init__(mass, radius)
 
