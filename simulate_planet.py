@@ -44,7 +44,7 @@ def simulate(num, planet, satellites, hill_sphere=None):
 
     position_satellites = []
     for satellite in satellites:
-        period = np.flatnonzero(satellite.orbit_2[:, 0] >= satellite.p)[0] + 1
+        period = np.flatnonzero(satellite.orbit_2[:, 0] >= satellite.p - 1e-07)[0] + 1
         ax.plot(satellite.orbit_2[:period, 1], satellite.orbit_2[:period, 2], color='white')
         init_position = Circle((satellite.orbit_2[0, 1], satellite.orbit_2[0, 2]), satellite.r_2 * 50, color='gray')
         position_satellites.append(ax.add_patch(init_position))

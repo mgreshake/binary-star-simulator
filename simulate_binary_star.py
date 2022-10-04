@@ -50,7 +50,7 @@ def simulate(star_system, binary_star, stability_limit=None, habitability_limit=
     if stability_limit is not None:
         ax.add_patch(Circle((0, 0), stability_limit, fill=False, edgecolor='red', linestyle='--'))
 
-    period = np.flatnonzero(binary_star.orbit_1[:, 0] >= binary_star.p)[0] + 1
+    period = np.flatnonzero(binary_star.orbit_1[:, 0] >= binary_star.p - 1e-07)[0] + 1
     ax.plot(binary_star.orbit_1[:period, 1], binary_star.orbit_1[:period, 2], color='white')
     ax.plot(binary_star.orbit_2[:period, 1], binary_star.orbit_2[:period, 2], color='white')
 
@@ -65,7 +65,7 @@ def simulate(star_system, binary_star, stability_limit=None, habitability_limit=
 
     position_planets = []
     for planet in planets:
-        period = np.flatnonzero(planet.orbit_2[:, 0] >= planet.p)[0] + 1
+        period = np.flatnonzero(planet.orbit_2[:, 0] >= planet.p - 1e-07)[0] + 1
         ax.plot(planet.orbit_2[:period, 1], planet.orbit_2[:period, 2], color='white')
         init_position = Circle((planet.orbit_2[0, 1], planet.orbit_2[0, 2]), planet.r_2 * 30, color='blue')
         position_planets.append(ax.add_patch(init_position))
