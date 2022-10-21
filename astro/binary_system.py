@@ -6,17 +6,21 @@ GRAVITATION = 6.67428e-11
 class BinarySystem:
     """Integrator for solving the two-body problem on Keplerian orbits.
     """
-    def __init__(self, mass_1, radius_1, mass_2, radius_2, semi_major_axis, eccentricity, inclination, rotation):
+    def __init__(self, mass_1, radius_1, mass_2, radius_2, semi_major_axis, eccentricity, longitude_of_ascending_node,
+                 inclination, argument_of_periapsis):
         """Initializes a gravitationally bound system with two masses.
 
-        :param mass_1:          Mass of the primary object in kilogram.
-        :param radius_1:        Radius of the primary object in meters.
-        :param mass_2:          Mass of the secondary object in kilogram.
-        :param radius_2:        Radius of the secondary object in meters.
-        :param semi_major_axis: Sum of the semi-distances between periapsis and apoapsis of both objects in meters.
-        :param eccentricity:    Shape of the ellipses describing the orbits of both objects.
-        :param inclination:     Vertical tilt of the semi-major axis with respect to the reference plane in radians.
-        :param rotation:        Rotation angle of the semi-major axis with respect to the observer in radians.
+        :param mass_1:                      Mass of the primary object in kilogram.
+        :param radius_1:                    Radius of the primary object in meters.
+        :param mass_2:                      Mass of the secondary object in kilogram.
+        :param radius_2:                    Radius of the secondary object in meters.
+        :param semi_major_axis:             Sum of the semi-distances between periapsis and apoapsis of both objects
+                                            in meters.
+        :param eccentricity:                Shape of the ellipses describing the orbits of both objects.
+        :param longitude_of_ascending_node: Orientation of the semi-major axes within the reference plane in radians.
+        :param inclination:                 Vertical tilt of the semi-major axes with respect to the reference plane
+                                            in radians.
+        :param argument_of_periapsis:       Orientation of the semi-major axes within the orbital plane in radians.
         """
         self.m_1 = mass_1
         self.m_2 = mass_2
@@ -25,31 +29,37 @@ class BinarySystem:
 
         self.a = semi_major_axis
         self.e = eccentricity
-        self.i = inclination - 0.5 * np.pi
-        self.omega = rotation
+
+        phi = longitude_of_ascending_node
+        theta = inclination - 0.5 * np.pi
+        psi = argument_of_periapsis
 
         self.p = np.sqrt(4 * np.pi**2 * self.a**3 / (GRAVITATION * (self.m_1 + self.m_2)))
 
         self.a_1 = self.a * self.m_2 / (self.m_1 + self.m_2)
         self.a_2 = self.a - self.a_1
 
-        self.x_1 = self.a_1 * (1 + self.e) * np.cos(self.i) * np.cos(self.omega)
-        self.y_1 = self.a_1 * (1 + self.e) * np.sin(self.omega)
-        self.z_1 = -self.a_1 * (1 + self.e) * np.sin(self.i) * np.cos(self.omega)
+        self.x_1 = self.a_1 * (1 + self.e) * (np.cos(phi) * np.cos(psi) - np.sin(phi) * np.cos(theta) * np.sin(psi))
+        self.y_1 = self.a_1 * (1 + self.e) * (np.sin(phi) * np.cos(psi) + np.cos(phi) * np.cos(theta) * np.sin(psi))
+        self.z_1 = self.a_1 * (1 + self.e) * np.sin(theta) * np.sin(psi)
 
-        self.x_2 = -self.a_2 * (1 + self.e) * np.cos(self.i) * np.cos(self.omega)
-        self.y_2 = -self.a_2 * (1 + self.e) * np.sin(self.omega)
-        self.z_2 = self.a_2 * (1 + self.e) * np.sin(self.i) * np.cos(self.omega)
+        self.x_2 = -self.a_2 * (1 + self.e) * (np.cos(phi) * np.cos(psi) - np.sin(phi) * np.cos(theta) * np.sin(psi))
+        self.y_2 = -self.a_2 * (1 + self.e) * (np.sin(phi) * np.cos(psi) + np.cos(phi) * np.cos(theta) * np.sin(psi))
+        self.z_2 = -self.a_2 * (1 + self.e) * np.sin(theta) * np.sin(psi)
 
         v = np.sqrt(GRAVITATION * (self.m_1 + self.m_2) / self.a * (1 - self.e) / (1 + self.e))
 
-        self.vx_1 = v * self.m_2 / (self.m_1 + self.m_2) * np.cos(self.i) * np.sin(self.omega)
-        self.vy_1 = -v * self.m_2 / (self.m_1 + self.m_2) * np.cos(self.omega)
-        self.vz_1 = -v * self.m_2 / (self.m_1 + self.m_2) * np.sin(self.i) * np.sin(self.omega)
+        self.vx_1 = v * self.m_2 / (self.m_1 + self.m_2) * (np.cos(phi) * np.sin(psi)
+                                                            + np.sin(phi) * np.cos(theta) * np.cos(psi))
+        self.vy_1 = v * self.m_2 / (self.m_1 + self.m_2) * (np.sin(phi) * np.sin(psi)
+                                                            - np.cos(phi) * np.cos(theta) * np.cos(psi))
+        self.vz_1 = -v * self.m_2 / (self.m_1 + self.m_2) * np.sin(theta) * np.cos(psi)
 
-        self.vx_2 = -v * self.m_1 / (self.m_1 + self.m_2) * np.cos(self.i) * np.sin(self.omega)
-        self.vy_2 = v * self.m_1 / (self.m_1 + self.m_2) * np.cos(self.omega)
-        self.vz_2 = v * self.m_1 / (self.m_1 + self.m_2) * np.sin(self.i) * np.sin(self.omega)
+        self.vx_2 = -v * self.m_1 / (self.m_1 + self.m_2) * (np.cos(phi) * np.sin(psi)
+                                                             + np.sin(phi) * np.cos(theta) * np.cos(psi))
+        self.vy_2 = -v * self.m_1 / (self.m_1 + self.m_2) * (np.sin(phi) * np.sin(psi)
+                                                             - np.cos(phi) * np.cos(theta) * np.cos(psi))
+        self.vz_2 = v * self.m_1 / (self.m_1 + self.m_2) * np.sin(theta) * np.cos(psi)
 
         self.orbit_1 = None
         self.orbit_2 = None

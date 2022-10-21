@@ -72,13 +72,14 @@ if __name__ == "__main__":
         config.radius_planets_in_jupiter[planet_index] * JUPITER_TO_METER,
         config.semi_major_axis_planets_in_au[planet_index] * AU_TO_METER,
         config.eccentricity_planets[planet_index],
+        config.longitude_of_ascending_node_planets_in_deg[planet_index] * DEG_TO_RAD,
         config.inclination_planets_in_deg[planet_index] * DEG_TO_RAD,
-        config.rotation_planets_in_deg[planet_index] * DEG_TO_RAD
+        config.argument_of_periapsis_planets_in_deg[planet_index] * DEG_TO_RAD
     )
 
     hill_sphere = planet.calc_hill_sphere()
 
-    num_satellites = len(config.mass_satellites_in_earth[planet_index])
+    num_satellites = len(config.semi_major_axis_satellites_in_au[planet_index])
     satellites = []
 
     # planet has to contain at least one satellite
@@ -91,8 +92,9 @@ if __name__ == "__main__":
             config.radius_satellites_in_earth[planet_index][n] * EARTH_TO_METER,
             config.semi_major_axis_satellites_in_au[planet_index][n] * AU_TO_METER,
             config.eccentricity_satellites[planet_index][n],
+            config.longitude_of_ascending_node_satellites_in_deg[planet_index][n] * DEG_TO_RAD,
             config.inclination_satellites_in_deg[planet_index][n] * DEG_TO_RAD,
-            config.rotation_satellites_in_deg[planet_index][n] * DEG_TO_RAD
+            config.argument_of_periapsis_satellites_in_deg[planet_index][n] * DEG_TO_RAD
         )
 
         # satellite has to be located beyond Roche limit but within its planet's Hill sphere

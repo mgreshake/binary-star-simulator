@@ -108,8 +108,9 @@ if __name__ == "__main__":
         star_2.mass, star_2.radius,
         config.semi_major_axis_binary_star_in_au * AU_TO_METER,
         config.eccentricity_binary_star,
+        config.longitude_of_ascending_node_binary_star_in_deg * DEG_TO_RAD,
         config.inclination_binary_star_in_deg * DEG_TO_RAD,
-        config.rotation_binary_star_in_deg * DEG_TO_RAD
+        config.argument_of_periapsis_binary_star_in_deg * DEG_TO_RAD
     )
 
     stability_limit = binary_star.calc_stability_limit()
@@ -131,7 +132,7 @@ if __name__ == "__main__":
         # orbital period of binary star has to be at least 7 days
         assert binary_star.p > 604800
 
-        num_planets = len(config.mass_planets_in_jupiter)
+        num_planets = len(config.semi_major_axis_planets_in_au)
         planets = []
 
         for n in range(num_planets):
@@ -141,8 +142,9 @@ if __name__ == "__main__":
                 config.radius_planets_in_jupiter[n] * JUPITER_TO_METER,
                 config.semi_major_axis_planets_in_au[n] * AU_TO_METER,
                 config.eccentricity_planets[n],
+                config.longitude_of_ascending_node_planets_in_deg[n] * DEG_TO_RAD,
                 config.inclination_planets_in_deg[n] * DEG_TO_RAD,
-                config.rotation_planets_in_deg[n] * DEG_TO_RAD
+                config.argument_of_periapsis_planets_in_deg[n] * DEG_TO_RAD
             )
 
             # distance from planet to barycenter has to be greater than minimum stable orbit around binary star
