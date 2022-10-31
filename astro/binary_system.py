@@ -67,7 +67,7 @@ class BinarySystem:
     def calc_stability_limit(self):
         """Calculates minimum distance from barycenter at which stable orbits are possible.
 
-        return: Radius of minimum stable orbit in meters.
+        :return: Radius of minimum stable orbit in meters.
         """
         mu = self.m_2 / (self.m_1 + self.m_2)
         return self.a * (1.6 + 4.12 * mu + 5.1 * self.e - 4.27 * mu * self.e - 5.09 * mu**2 - 2.22 * self.e**2
@@ -76,14 +76,14 @@ class BinarySystem:
     def calc_hill_sphere(self):
         """Calculates radius of Hill sphere where the gravitational forces of both objects are equal.
 
-        return: Radius of Hill sphere in meters.
+        :return: Radius of Hill sphere in meters.
         """
         return self.a * (1 - self.e) * np.cbrt(self.m_2 / (3 * self.m_1))
 
     def calc_roche_limit(self):
         """Calculates Roche limit where tidal forces and gravitational self-attraction are equal.
 
-        return: Radius of Roche limit in meters.
+        :return: Radius of Roche limit in meters.
         """
         return self.r_2 * np.cbrt(2 * self.m_1 / self.m_2)
 

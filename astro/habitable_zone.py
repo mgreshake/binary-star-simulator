@@ -28,7 +28,7 @@ class HabitableZone:
 
         :param t_eff: Effective temperature of the star in Kelvin.
 
-        :return Effective stellar flux at recent Venus, runaway greenhouse, maximum greenhouse and early Mars limit.
+        :return: Effective stellar flux at recent Venus, runaway greenhouse, maximum greenhouse and early Mars limit.
         """
         t = t_eff - SUN_TEMPERATURE
         s = np.empty(4)
@@ -46,7 +46,7 @@ class HabitableZone:
         :param p_1: Cartesian coordinate of primary star at apastron.
         :param p_2: Cartesian coordinate of secondary star at apastron.
 
-        :return Radii of inner and outer radiative habitable limits in meters.
+        :return: Radii of inner and outer radiative habitable limits in meters.
         """
         d = 0.5 * np.linalg.norm(np.subtract(p_1, p_2)) / AU_TO_METER
         r_in, r_out, _, _ = self.solve_differential_equation(d, 0)
@@ -60,7 +60,7 @@ class HabitableZone:
         :param a:   Semi-distance between both stars in astronomical units.
         :param phi: True anomaly of hypothetical orbiting object on habitability limit contour in radians.
 
-        return: Four possible solutions of equation ordered by descending relevance.
+        :return: Four possible solutions of equation ordered by descending relevance.
         """
         a_0 = a**4 - a**2 * (self.l_1 + self.l_2)
         a_1 = 2 * a * np.cos(phi) * (self.l_1 - self.l_2)
