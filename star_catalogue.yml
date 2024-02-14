@@ -1,207 +1,311 @@
 Kepler-16:
-  mass stars: [0.6897, 0.20255]
-  radius stars: [0.6489, 0.22623]
-  luminosity stars: [0.148, 0.0057]
-  temperature stars: [4450, 3311]
-  semi-major axis stars: 0.22431
-  eccentricity stars: 0.15944
-  inclination stars: 90.3401
-  argument of periapsis stars: 263.464
+  semi-major axis: 0.22431
+  eccentricity: 0.15944
+  inclination: 90.3401
+  argument of periapsis: 263.464
 
-  mass planets: [0.333]
-  radius planets: [0.7538]
-  semi-major axis planets: [0.7048]
-  eccentricity planets: [0.00685]
-  longitude of ascending node planets: [0.003]
-  inclination planets: [90.0322]
-  argument of periapsis planets: [318.7029]
+  stars:
+    - mass: 0.6897
+      radius: 0.6489
+      luminosity: 0.148
+      temperature: 4450
+
+    - mass: 0.20255
+      radius: 0.22623
+      luminosity: 0.0057
+      temperature: 3311
+
+  planets:
+    - mass: 0.333
+      radius: 0.7538
+      semi-major axis: 0.7048
+      eccentricity: 0.00685
+      longitude of ascending node: 0.003
+      inclination: 90.0322
+      argument of periapsis: 318.7029
 
 
 Kepler-34:
-  mass stars: [1.0479, 1.0208]
-  radius stars: [1.1618, 1.0927]
-  luminosity stars: [1.478, 1.268]
-  temperature stars: [5913, 5867]
-  semi-major axis stars: 0.22882
-  eccentricity stars: 0.52087
-  inclination stars: 89.8584
-  argument of periapsis stars: 71.4359
+  semi-major axis: 0.22882
+  eccentricity: 0.52087
+  inclination: 89.8584
+  argument of periapsis: 71.4359
 
-  mass planets: [0.22]
-  radius planets: [0.764]
-  semi-major axis planets: [1.0896]
-  eccentricity planets: [0.182]
-  longitude of ascending node planets: [358.26]
-  inclination planets: [90.355]
-  argument of periapsis planets: [82.0928]
+  stars:
+    - mass: 1.0479
+      radius: 1.1618
+      luminosity: 1.478
+      temperature: 5913
+
+    - mass: 1.0208
+      radius: 1.0927
+      luminosity: 1.268
+      temperature: 5867
+
+  planets:
+    - mass: 0.22
+      radius: 0.764
+      semi-major axis: 1.0896
+      eccentricity: 0.182
+      longitude of ascending node: 358.26
+      inclination: 90.355
+      argument of periapsis: 82.0928
 
 
 Kepler-35:
-  mass stars: [0.8876, 0.8094]
-  radius stars: [1.0284, 0.7861]
-  luminosity stars: [0.936, 0.405]
-  temperature stars: [5606, 5202]
-  semi-major axis stars: 0.17617
-  eccentricity stars: 0.1421
-  inclination stars: 90.4238
-  argument of periapsis stars: 86.5127
+  semi-major axis: 0.17617
+  eccentricity: 0.1421
+  inclination: 90.4238
+  argument of periapsis: 86.5127
 
-  mass planets: [0.127]
-  radius planets: [0.728]
-  semi-major axis planets: [0.60345]
-  eccentricity planets: [0.042]
-  longitude of ascending node planets: [358.76]
-  inclination planets: [90.76]
-  argument of periapsis planets: [63.4349]
+  stars:
+    - mass: 0.8876
+      radius: 1.0284
+      luminosity: 0.936
+      temperature: 5606
+
+    - mass: 0.8094
+      radius: 0.7861
+      luminosity: 0.405
+      temperature: 5202
+
+  planets:
+    - mass: 0.127
+      radius: 0.728
+      semi-major axis: 0.60345
+      eccentricity: 0.042
+      longitude of ascending node: 358.76
+      inclination: 90.76
+      argument of periapsis: 63.4349
 
 
 Kepler-38:
-  mass stars: [0.949, 0.249]
-  radius stars: [1.757, 0.2724]
-  luminosity stars: [2.765, 0.008]
-  temperature stars: [5640, 3325]
-  semi-major axis stars: 0.1469
-  eccentricity stars: 0.1032
-  inclination stars: 89.265
-  argument of periapsis stars: 268.68
+  semi-major axis: 0.1469
+  eccentricity: 0.1032
+  inclination: 89.265
+  argument of periapsis: 268.68
 
-  mass planets: [0.384]
-  radius planets: [0.39]
-  semi-major axis planets: [0.4644]
-  eccentricity planets: [0.032]
-  longitude of ascending node planets: [359.988]
-  inclination planets: [89.446]
-  argument of periapsis planets: [32.8285]
+  stars:
+    - mass: 0.949
+      radius: 1.757
+      luminosity: 2.765
+      temperature: 5640
+
+    - mass: 0.249
+      radius: 0.2724
+      luminosity: 0.008
+      temperature: 3325
+
+  planets:
+    - mass: 0.384
+      radius: 0.39
+      semi-major axis: 0.4644
+      eccentricity: 0.032
+      longitude of ascending node: 359.988
+      inclination: 89.446
+      argument of periapsis: 32.8285
 
 
 Kepler-47:
-  mass stars: [0.957, 0.342]
-  radius stars: [0.936, 0.338]
-  luminosity stars: [0.792, 0.013]
-  temperature stars: [5636, 3357]
-  semi-major axis stars: 0.08145
-  eccentricity stars: 0.0288
-  inclination stars: 89.613
-  argument of periapsis stars: 226.3
+  semi-major axis: 0.08145
+  eccentricity: 0.0288
+  inclination: 89.613
+  argument of periapsis: 226.3
 
-  mass planets: [0.0063, 0.0598, 0.0094]
-  radius planets: [0.2721, 0.6281, 0.4148]
-  semi-major axis planets: [0.2877, 0.6992, 0.9638]
-  eccentricity planets: [0.021, 0.024, 0.044]
-  longitude of ascending node planets: [359.912, 359.13, 358.72]
-  inclination planets: [89.752, 90.395, 90.1925]
-  argument of periapsis planets: [48.6, 352, 306]
+  stars:
+    - mass: 0.957
+      radius: 0.936
+      luminosity: 0.792
+      temperature: 5636
+
+    - mass: 0.342
+      radius: 0.338
+      luminosity: 0.013
+      temperature: 3357
+
+  planets:
+    - mass: 0.0063
+      radius: 0.2721
+      semi-major axis: 0.2877
+      eccentricity: 0.021
+      longitude of ascending node: 359.912
+      inclination: 89.752
+      argument of periapsis: 48.6
+
+    - mass: 0.0598
+      radius: 0.6281
+      semi-major axis: 0.6992
+      eccentricity: 0.024
+      longitude of ascending node: 359.13
+      inclination: 90.395
+      argument of periapsis: 352
+
+    - mass: 0.0094
+      radius: 0.4148
+      semi-major axis: 0.9638
+      eccentricity: 0.044
+      longitude of ascending node: 358.72
+      inclination: 90.1925
+      argument of periapsis: 306
 
 
 Kepler-64:
-  mass stars: [1.528, 0.378]
-  radius stars: [1.734, 0.408]
-  luminosity stars: [4.54, 0.024]
-  temperature stars: [6407, 3561]
-  semi-major axis stars: 0.1744
-  eccentricity stars: 0.2117
-  inclination stars: 87.36
-  argument of periapsis stars: 217.6
+  semi-major axis: 0.1744
+  eccentricity: 0.2117
+  inclination: 87.36
+  argument of periapsis: 217.6
 
-  mass planets: [0.531]
-  radius planets: [0.551]
-  semi-major axis planets: [0.634]
-  eccentricity planets: [0.0539]
-  longitude of ascending node planets: [0.89]
-  inclination planets: [90.022]
-  argument of periapsis planets: [348.0]
+  stars:
+    - mass: 1.528
+      radius: 1.734
+      luminosity: 4.54
+      temperature: 6407
+
+    - mass: 0.378
+      radius: 0.408
+      luminosity: 0.024
+      temperature: 3561
+
+  planets:
+    - mass: 0.531
+      radius: 0.551
+      semi-major axis: 0.634
+      eccentricity: 0.0539
+      longitude of ascending node: 0.89
+      inclination: 90.022
+      argument of periapsis: 348.0
 
 
 Kepler-413:
-  mass stars: [0.82, 0.5423]
-  radius stars: [0.7761, 0.484]
-  luminosity stars: [0.263, 0.03]
-  temperature stars: [4700, 3463]
-  semi-major axis stars: 0.10148
-  eccentricity stars: 0.0365
-  inclination stars: 87.332
-  argument of periapsis stars: 279.74
+  semi-major axis: 0.10148
+  eccentricity: 0.0365
+  inclination: 87.332
+  argument of periapsis: 279.74
 
-  mass planets: [0.21]
-  radius planets: [0.388]
-  semi-major axis planets: [0.3553]
-  eccentricity planets: [0.1181]
-  longitude of ascending node planets: [3.139]
-  inclination planets: [89.929]
-  argument of periapsis planets: [94.6]
+  stars:
+    - mass: 0.82
+      radius: 0.7761
+      luminosity: 0.263
+      temperature: 4700
+
+    - mass: 0.5423
+      radius: 0.484
+      luminosity: 0.03
+      temperature: 3463
+
+  planets:
+    - mass: 0.21
+      radius: 0.388
+      semi-major axis: 0.3553
+      eccentricity: 0.1181
+      longitude of ascending node: 3.139
+      inclination: 89.929
+      argument of periapsis: 94.6
 
 
 Kepler-453:
-  mass stars: [0.944, 0.1951]
-  radius stars: [0.833, 0.215]
-  luminosity stars: [0.58, 0.005]
-  temperature stars: [5527, 3226]
-  semi-major axis stars: 0.18539
-  eccentricity stars: 0.0524
-  inclination stars: 90.266
-  argument of periapsis stars: 263.05
+  semi-major axis: 0.18539
+  eccentricity: 0.0524
+  inclination: 90.266
+  argument of periapsis: 263.05
 
-  mass planets: [0.05]
-  radius planets: [0.553]
-  semi-major axis planets: [0.7903]
-  eccentricity planets: [0.0359]
-  longitude of ascending node planets: [2.103]
-  inclination planets: [89.4429]
-  argument of periapsis planets: [185.1]
+  stars:
+    - mass: 0.944
+      radius: 0.833
+      luminosity: 0.58
+      temperature: 5527
+
+    - mass: 0.1951
+      radius: 0.215
+      luminosity: 0.005
+      temperature: 3226
+
+  planets:
+    - mass: 0.05
+      radius: 0.553
+      semi-major axis: 0.7903
+      eccentricity: 0.0359
+      longitude of ascending node: 2.103
+      inclination: 89.4429
+      argument of periapsis: 185.1
 
 
 Kepler-1647:
-  mass stars: [1.2207, 0.9678]
-  radius stars: [1.7903, 0.9663]
-  luminosity stars: [4.271, 0.927]
-  temperature stars: [6210, 5770]
-  semi-major axis stars: 0.1276
-  eccentricity stars: 0.1602
-  inclination stars: 87.9164
-  argument of periapsis stars: 300.5442
+  semi-major axis: 0.1276
+  eccentricity: 0.1602
+  inclination: 87.9164
+  argument of periapsis: 300.5442
 
-  mass planets: [1.52]
-  radius planets: [1.059]
-  semi-major axis planets: [2.7205]
-  eccentricity planets: [0.0581]
-  longitude of ascending node planets: [357.9607]
-  inclination planets: [90.0972]
-  argument of periapsis planets: [155.0464]
+  stars:
+    - mass: 1.2207
+      radius: 1.7903
+      luminosity: 4.271
+      temperature: 6210
+
+    - mass: 0.9678
+      radius: 0.9663
+      luminosity: 0.927
+      temperature: 5770
+
+  planets:
+    - mass: 1.52
+      radius: 1.059
+      semi-major axis: 2.7205
+      eccentricity: 0.0581
+      longitude of ascending node: 357.9607
+      inclination: 90.0972
+      argument of periapsis: 155.0464
 
 
 Kepler-1661:
-  mass stars: [0.841, 0.262]
-  radius stars: [0.762, 0.276]
-  luminosity stars: [0.352, 0.011]
-  temperature stars: [5100, 3585]
-  semi-major axis stars: 0.187
-  eccentricity stars: 0.112
-  inclination stars: 88.76
-  argument of periapsis stars: 36.4
+  semi-major axis: 0.187
+  eccentricity: 0.112
+  inclination: 88.76
+  argument of periapsis: 36.4
 
-  mass planets: [0.053]
-  radius planets: [0.345]
-  semi-major axis planets: [0.633]
-  eccentricity planets: [0.057]
-  longitude of ascending node planets: [0.61]
-  inclination planets: [89.464]
-  argument of periapsis planets: [67.1]
+  stars:
+    - mass: 0.841
+      radius: 0.762
+      luminosity: 0.352
+      temperature: 5100
+
+    - mass: 0.262
+      radius: 0.276
+      luminosity: 0.011
+      temperature: 3585
+
+  planets:
+    - mass: 0.053
+      radius: 0.345
+      semi-major axis: 0.633
+      eccentricity: 0.057
+      longitude of ascending node: 0.61
+      inclination: 89.464
+      argument of periapsis: 67.1
 
 
 TOI-1338:
-  mass stars: [1.038, 0.2974]
-  radius stars: [1.299, 0.3015]
-  luminosity stars: [2.026, 0.01]
-  temperature stars: [6050, 3330]
-  semi-major axis stars: 0.1288
-  eccentricity stars: 0.15601
-  inclination stars: 89.658
-  argument of periapsis stars: 117.561
+  semi-major axis: 0.1288
+  eccentricity: 0.15601
+  inclination: 89.658
+  argument of periapsis: 117.561
 
-  mass planets: [0.095]
-  radius planets: [0.612]
-  semi-major axis planets: [0.4491]
-  eccentricity planets: [0.0928]
-  longitude of ascending node planets: [0.87]
-  inclination planets: [89.22]
-  argument of periapsis planets: [263.3]
+  stars:
+    - mass: 1.038
+      radius: 1.299
+      luminosity: 2.026
+      temperature: 6050
+
+    - mass: 0.2974
+      radius: 0.3015
+      luminosity: 0.01
+      temperature: 3330
+
+  planets:
+    - mass: 0.095
+      radius: 0.612
+      semi-major axis: 0.4491
+      eccentricity: 0.0928
+      longitude of ascending node: 0.87
+      inclination: 89.22
+      argument of periapsis: 263.3
