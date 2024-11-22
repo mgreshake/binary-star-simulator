@@ -5,7 +5,7 @@ class ParameterConfig:
     """Container that holds parameters for a binary star system.
     """
 
-    def __init__(self, star_system, config_path="star_catalogue.yml"):
+    def __init__(self, star_system, config_path="star_catalog.yml"):
         """Reads parameters from configuration file.
 
         :param star_system: Binary star system to be parameterized.
